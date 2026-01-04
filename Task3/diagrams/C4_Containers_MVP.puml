@@ -1,0 +1,53 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title C4 – Контейнеры: открытие депозитов (MVP)
+
+Person(customer, "Клиент")
+Person_Ext(cc_operator, "Оператор КЦ")
+Person_Ext(bo_deposits, "Бэк-офис депозитов")
+
+System_Boundary(ib, "Интернет-банк (.NET Framework)") {
+  Container(ib_web, "Веб-приложение", "ASP.NET MVC", "Страницы вкладов, форма заявки, OTP-ввод")
+  Container(ib_deposits, "Модуль 'Депозиты'", "C#", "Контроллеры/сервисы для заявок")
+}
+
+System_Boundary(site, "Сайт (PHP/React)") {
+  Container(site_web, "Веб-сайт", "PHP/React", "Список вкладов, форма заявки для новых клиентов")
+}
+
+System_Boundary(mvp, "Новые сервисы (MVP)") {
+  Container(app_api, "Сервис заявок вкладов", "Java/.NET", "REST API, хранение заявок")
+  ContainerDb(app_db, "БД заявок", "MS SQL/Oracle", "Заявки, статусы, аудит")
+  Container(rate_api, "Сервис ставок", "Java/.NET", "REST API для сайта/ИБ")
+  ContainerDb(rate_store, "Кэш/витрина ставок", "MS SQL/Redis", "Публичные и персональные ставки")
+  Container(abs_gateway, "Шлюз к АБС", "Java/.NET", "Контрактный API к АБС")
+}
+
+System_Boundary(abs, "АБС") {
+  Container(abs_deposits, "Модуль депозитов", "PL/SQL", "Открытие/учёт вкладов")
+  Container(abs_credits, "Модуль кредитов", "PL/SQL", "Риск/спецставки (ручной обмен на MVP)")
+}
+
+System(system_cc, "Система кол-центра", "Обращения, карточка клиента")
+System(sms_gateway, "СМС-шлюз", "OTP и уведомления")
+
+' Users → containers
+Rel(customer, site_web, "Смотреть ставки, подать заявку")
+Rel(customer, ib_web, "Смотреть персональные ставки, подать заявку (OTP)")
+Rel(cc_operator, system_cc, "Обработка заявки сайта")
+Rel(bo_deposits, abs_deposits, "Подтверждение/открытие вклада")
+
+' Integrations
+Rel(site_web, rate_api, "Получить ставки", "HTTPS")
+Rel(ib_deposits, rate_api, "Получить ставки/персональные", "HTTPS")
+Rel(site_web, app_api, "Создать заявку", "HTTPS")
+Rel(ib_deposits, app_api, "Создать/получить заявку", "HTTPS")
+Rel(app_api, app_db, "Хранение заявок", "JDBC/ADO.NET")
+Rel(app_api, system_cc, "Создать обращение", "HTTPS")
+Rel(app_api, abs_gateway, "Статусы/подтверждение", "HTTPS")
+Rel(abs_gateway, abs_deposits, "Процедуры/пакеты", "PL/SQL")
+Rel(app_api, sms_gateway, "OTP/уведомления", "HTTPS")
+Rel(rate_api, rate_store, "Чтение/обновление ставок", "SQL/Redis")
+
+@enduml

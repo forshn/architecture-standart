@@ -1,0 +1,32 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title C4 – Компоненты: передача ставок в кол-центр (MVP)
+
+Person(cc_operator, "Оператор КЦ")
+Person_Ext(partner_agent, "Оператор партнёрского КЦ")
+Person(bo_staff, "Бэк-офис")
+
+Container_Boundary(rate_service, "Сервис ставок") {
+  Component(rate_api, "Rate API", "REST", "GET /rates (для системы КЦ)")
+  Component(rate_store, "Rate Store", "DB/Cache", "Публичные/персональные ставки")
+  Component(rate_import, "Rate Import", "Job", "Импорт из Excel/АБС")
+  Component(rate_export, "Rate Export", "Job", "Генерация CSV/XLSX по расписанию")
+  Component(rate_mailer, "Rate Mailer", "SMTP", "Отправка файла партнёру, ретраи, лог")
+}
+
+Container(system_cc, "Система кол-центра", "Внутренняя система")
+Container_Ext(partner_cc, "Система партнёрского КЦ", "Внешняя система")
+Container_Ext(abs_or_excel, "АБС / Excel", "Источник ставок")
+
+Rel(bo_staff, abs_or_excel, "Обновляет ставки")
+Rel(abs_or_excel, rate_import, "Файл/процедуры")
+Rel(rate_import, rate_store, "Обновляет ставки")
+Rel(system_cc, rate_api, "Читает ставки", "HTTPS")
+Rel(rate_export, rate_store, "Читает актуальные ставки")
+Rel(rate_export, rate_mailer, "Передаёт файл для отправки")
+Rel(rate_mailer, partner_cc, "E-mail: файл ставок")
+Rel(cc_operator, system_cc, "Смотрит ставки")
+Rel(partner_agent, partner_cc, "Смотрит ставки")
+
+@enduml

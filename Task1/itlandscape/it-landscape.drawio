@@ -1,0 +1,82 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.9">
+  <diagram id="ITLandscape" name="Карта текущего IT-ландшафта">
+    <mxGraphModel dx="1000" dy="605" grid="1" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="col1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Продажи в сети отделений" vertex="1">
+          <mxGeometry height="60" width="290" x="240" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="col2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Продажи через кол-центр" vertex="1">
+          <mxGeometry height="60" width="290" x="530" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="col3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Digital-оповещения клиентов" vertex="1">
+          <mxGeometry height="60" width="290" x="820" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="col4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Обслуживание депозитных процессов" vertex="1">
+          <mxGeometry height="60" width="290" x="1110" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="col5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Обслуживание кредитных процессов" vertex="1">
+          <mxGeometry height="60" width="290" x="1400" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="col6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Управление договорами" vertex="1">
+          <mxGeometry height="60" width="290" x="1690" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="row1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Управление обслуживанием в сети отделений" vertex="1">
+          <mxGeometry height="100" width="200" x="20" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="row2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Кол-центр банка Стандарт" vertex="1">
+          <mxGeometry height="100" width="200" x="20" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="row3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Партнёрский кол-центр" vertex="1">
+          <mxGeometry height="100" width="200" x="20" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="row4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="IT-отдел" vertex="1">
+          <mxGeometry height="100" width="200" x="20" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="row5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Управление обслуживанием депозитных продуктов" vertex="1">
+          <mxGeometry height="100" width="200" x="20" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="row6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Управление обслуживанием кредитных продуктов" vertex="1">
+          <mxGeometry height="100" width="200" x="20" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="row7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Команда цифровой трансформации розничного бизнеса" vertex="1">
+          <mxGeometry height="100" width="200" x="20" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="r1c1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#d9d9d9;fillColor=#ffffff;" value="АБС (Delphi/Oracle)&#xa;E-mail, Excel&#xa;Печать и выдача документов" vertex="1">
+          <mxGeometry height="100" width="290" x="240" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="r1c3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#d9d9d9;fillColor=#ffffff;" value="СМС через СМС-шлюз (ИТ)&#xa;Инициируется из АБС" vertex="1">
+          <mxGeometry height="100" width="290" x="820" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="r1c6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#d9d9d9;fillColor=#ffffff;" value="АБС: формирование договоров&#xa;Загрузка сканов документов" vertex="1">
+          <mxGeometry height="100" width="290" x="1690" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="r2c2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#d9d9d9;fillColor=#ffffff;" value="Система кол-центра (React/Spring Boot, PostgreSQL)&#xa;Предзапрос ставки в АБС&#xa;СМС-уведомления" vertex="1">
+          <mxGeometry height="100" width="290" x="530" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="r2c3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#d9d9d9;fillColor=#ffffff;" value="СМС через СМС-шлюз (ИТ)" vertex="1">
+          <mxGeometry height="100" width="290" x="820" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="r3c2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#d9d9d9;fillColor=#ffffff;" value="Внешняя система партнёрского КЦ&lt;br&gt;Без прямой интеграции с АБС&lt;br&gt;Работа по скриптам" vertex="1">
+          <mxGeometry height="100" width="290" x="530" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="r4c3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#d9d9d9;fillColor=#ffffff;" value="СМС-шлюз банка&#xa;Телеком-оператор" vertex="1">
+          <mxGeometry height="100" width="290" x="820" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="r4c4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#d9d9d9;fillColor=#ffffff;" value="Интернет-банк (ASP.NET MVC 4.5) — не задействован в депозитах сейчас&#xa;Поддерживает: платежи, текущие счета" vertex="1">
+          <mxGeometry height="100" width="290" x="1110" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="r5c4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#d9d9d9;fillColor=#ffffff;" value="АБС (PL/SQL)&#xa;Excel: расч\u00EBт ставок&#xa;E-mail: обмен данными&#xa;СМС-уведомления клиенту" vertex="1">
+          <mxGeometry height="100" width="290" x="1110" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="r6c5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#d9d9d9;fillColor=#ffffff;" value="АБС (модуль кредитов)&#xa;Анализ кредитного риска&#xa;E-mail: передача данных для спецставок" vertex="1">
+          <mxGeometry height="100" width="290" x="1400" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="r7c4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#d9d9d9;fillColor=#ffffff;" value="Проектирование целевого процесса и интеграций&#xa;Шлюз к АБС (API), анти-коррупционный слой" vertex="1">
+          <mxGeometry height="100" width="290" x="1110" y="840" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

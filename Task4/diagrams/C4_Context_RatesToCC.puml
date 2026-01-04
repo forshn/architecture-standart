@@ -1,0 +1,24 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title C4 – Контекст: передача ставок в кол-центр (MVP)
+
+Person(cc_operator, "Оператор КЦ", "Консультирует клиентов")
+Person_Ext(partner_agent, "Оператор партнёрского КЦ", "Работает во внешней системе")
+Person(bo_staff, "Бэк-офис", "Обновляет ставки")
+
+System(rate_service, "Сервис ставок", "Витрина ставок, экспорт файлов")
+System(system_cc, "Система кол-центра", "Внутренняя система банка")
+System_Ext(partner_cc, "Система партнёрского КЦ", "Внешняя система, принимает файлы")
+System_Ext(email, "Почтовый сервер", "Отправка писем партнёру")
+System_Ext(abs_or_excel, "АБС / Excel", "Источник ставок на MVP")
+
+Rel(bo_staff, abs_or_excel, "Обновляет ставки")
+Rel(abs_or_excel, rate_service, "Публикует/импорт в витрину")
+Rel(system_cc, rate_service, "Читает ставки (внутренний API)", "HTTPS")
+Rel(rate_service, email, "Отправляет файл ставок по расписанию")
+Rel(email, partner_cc, "Доставка файла (CSV/XLSX)")
+Rel(cc_operator, system_cc, "Смотрит ставки и консультирует")
+Rel(partner_agent, partner_cc, "Смотрит ставки и консультирует")
+
+@enduml
