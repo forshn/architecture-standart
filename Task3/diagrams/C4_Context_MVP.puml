@@ -1,0 +1,40 @@
+@startuml
+' C4 Context diagram for MVP deposits
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title C4 – Контекст: открытие депозитов (MVP)
+
+Person(customer, "Клиент", "Смотрит ставки, подаёт заявку")
+Person_Ext(cc_operator, "Оператор КЦ", "Обрабатывает заявки")
+Person_Ext(bo_deposits, "Бэк-офис депозитов", "Подтверждает и открывает вклад")
+
+System(web_site, "Сайт", "Показывает вклады, принимает заявки от новых клиентов")
+System(internet_bank, "Интернет-банк", "Показывает персональные ставки, принимает заявки от действующих клиентов")
+System(system_cc, "Система кол-центра", "Карточки обращений, работа оператора")
+System(sms_gateway, "СМС-шлюз", "OTP и уведомления")
+
+System_Boundary(mvp, "Новые сервисы (MVP)") {
+  System(app_service, "Сервис заявок вкладов", "Хранит и обрабатывает заявки")
+  System(rate_service, "Сервис ставок", "Витрина/кэш ставок")
+  System(abs_gateway, "Шлюз к АБС", "Контрактный API к АБС")
+}
+
+System(ABS, "АБС", "Открытие вклада, учёт")
+
+' Акторы → системы
+Rel(customer, web_site, "Смотрит ставки, подаёт заявку")
+Rel(customer, internet_bank, "Смотрит персональные ставки, подаёт заявку (OTP)")
+Rel(cc_operator, system_cc, "Обрабатывает заявки")
+Rel(bo_deposits, ABS, "Подтверждает/открывает вклад")
+
+' Система ↔ система
+Rel(web_site, app_service, "Создаёт заявку", "HTTPS/TLS")
+Rel(internet_bank, app_service, "Создаёт/читает заявку", "HTTPS/TLS")
+Rel(internet_bank, rate_service, "Запрашивает ставки (персональные)", "HTTPS/TLS")
+Rel(web_site, rate_service, "Запрашивает ставки", "HTTPS/TLS")
+Rel(app_service, system_cc, "Создаёт обращение", "HTTPS")
+Rel(app_service, abs_gateway, "Статус/подтверждение", "HTTPS")
+Rel(abs_gateway, ABS, "Вызовы процедур", "PL/SQL")
+Rel(app_service, sms_gateway, "OTP / уведомления", "HTTPS")
+
+@enduml
